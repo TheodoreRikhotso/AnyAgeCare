@@ -57,7 +57,7 @@
     android:id="@+id/etContact"
     android:hint=" Contact No:"
 
-    android:inputType="number"
+    android:inputType="textPhonetic"
     android:maxLines="1"
     android:layout_width="match_parent"
     android:layout_height="51dp"/>
