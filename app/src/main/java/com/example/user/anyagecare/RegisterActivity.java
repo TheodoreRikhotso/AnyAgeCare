@@ -91,25 +91,27 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     String id = auth.getCurrentUser().getUid();
-                                    db = FirebaseDatabase.getInstance().getReference("Users/" + id + "/Profile");
+                                    db = FirebaseDatabase.getInstance().getReference("Users/" + id );
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("mAIN", "createUserWithEmail:success");
 
                                     //updateUI(user);
                                     Firebase.setAndroidContext(RegisterActivity.this);
 
-//                                    User user_ = new User();
-//
-//                                    user_.setContact(contact);
-//                                    user_.setName(name);
-//                                    user_.setSurname(surname);
-//                                    user_.setEmail(email);
-//                                    db.setValue(user_);
-                                    // Write a message to the database
-                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference myRef = database.getReference("message");
+                                    User user_ = new User();
 
-                                    myRef.setValue("Hello, World!");
+                                    user_.setContact(contact);
+                                    user_.setName(name);
+                                    user_.setSurname(surname);
+                                    user_.setSurname(surname);
+                                    user_.setEmail(email);
+                                    db.setValue(user_);
+                                    // Write a message to the database
+//                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                                    DatabaseReference myRef = database.getReference("message");
+//                                    Firebase.setAndroidContext(RegisterActivity.this);
+//
+//                                    myRef.setValue("Hello, World!");
 
                                 } else {
                                     // If sign in fails, display a message to the user.
