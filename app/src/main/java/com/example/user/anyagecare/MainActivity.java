@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private Fragment fragment;
     private FragmentManager fragmentManager;
-    private Toolbar toolbar;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,35 +31,35 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
 
                     fragment = new HomeFragment();
-                    toolbar.setTitle("Home");
+
 
                     break;
 //
                 case R.id.navigation_tips:
 
                     fragment = new TipsFragment();
-                    toolbar.setTitle("Tips");
+
 
                     break;
 
                 case R.id.navigation_emergency:
 
                     fragment = new EmergencyFragment();
-                    toolbar.setTitle("Emergency");
+
 
                     break;
 
                 case R.id.navigation_appointments:
 
                     fragment = new AppointmetFragment();
-                    toolbar.setTitle("Appointmet");
+
 
                     break;
 
                 case R.id.navigation_progress:
 
                     fragment = new ProgressFragment();
-                    toolbar.setTitle("Progress");
+
 
                     break;
 
@@ -82,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manager=getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
-         toolbar =findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
-        setSupportActionBar(toolbar);
+
 
         transaction.add(R.id.content,f);
         transaction.commit();

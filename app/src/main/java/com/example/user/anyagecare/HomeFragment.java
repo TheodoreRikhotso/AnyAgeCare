@@ -5,7 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,7 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeFragment extends Fragment {
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
+    private Toolbar toolbar;
+    private View view;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -25,17 +32,37 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_home, container, false);
-        Button b = view.findViewById(R.id.btnlogout);
-        auth = FirebaseAuth.getInstance();
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logoutUser();
-            }
-        });
+        view=inflater.inflate(R.layout.fragment_home, container, false);
+        toolbar = view.findViewById(R.id.toolbar_home);
+        toolbar.setTitle("Home");
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
+        setHasOptionsMenu(true);
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.itLogout) {
+            logoutUser();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void logoutUser() {

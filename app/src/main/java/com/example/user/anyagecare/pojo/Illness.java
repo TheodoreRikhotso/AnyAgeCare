@@ -1,4 +1,5 @@
 package com.example.user.anyagecare.pojo;
 
-class Illiness {
+public class Illness {
+
 }

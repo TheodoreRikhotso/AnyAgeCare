@@ -10,7 +10,7 @@ public class User {
     private String surname;
     private String  contact;
     private String  email;
-    private List<Illiness> illinesses;
+    private List<Illness> illnesses;
     private List<Address> addresses;
     private String dob;
     private String click;
@@ -20,14 +20,14 @@ public class User {
 
     }
 
-    public User(String id, String idNo, String name, String surname, String contact, String email, List<Illiness> illinesses, List<Address> addresses, String dob, String click, List<Kin> kins) {
+    public User(String id, String idNo, String name, String surname, String contact, String email, List<Illness> illnesses, List<Address> addresses, String dob, String click, List<Kin> kins) {
         this.id = id;
         this.idNo = idNo;
         this.name = name;
         this.surname = surname;
         this.contact = contact;
         this.email = email;
-        this.illinesses = illinesses;
+        this.illnesses = illnesses;
         this.addresses = addresses;
         this.dob = dob;
         this.click = click;
@@ -82,12 +82,12 @@ public class User {
         this.email = email;
     }
 
-    public List<Illiness> getIllinesses() {
-        return illinesses;
+    public List<Illness> getIllnesses() {
+        return illnesses;
     }
 
-    public void setIllinesses(List<Illiness> illinesses) {
-        this.illinesses = illinesses;
+    public void setIllnesses(List<Illness> illnesses) {
+        this.illnesses = illnesses;
     }
 
     public List<Address> getAddresses() {
